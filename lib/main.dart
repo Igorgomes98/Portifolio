@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart' as google;
+import 'package:portifolio/screens/home/homeScreen.dart';
 import 'package:portifolio/screens/main/main_screen.dart';
 
 import 'constants.dart';
@@ -26,9 +27,11 @@ class MyApp extends StatelessWidget {
             .copyWith(
               bodyLarge: const TextStyle(color: bodyTextColor),
               bodyMedium: const TextStyle(color: bodyTextColor),
+              labelLarge: const TextStyle(color: Colors.white)
             ),
       ),
-      home: const MainScreen(),
+      // home: const MainScreen(),
+      home: const HomeScreen(),
     );
   }
 }
