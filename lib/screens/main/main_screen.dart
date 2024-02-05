@@ -17,11 +17,11 @@ class MainScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
+              const Expanded(
                 flex: 2,
                 child: sideMenu(),
               ),
-              SizedBox(width: defaultPadding),
+              const SizedBox(width: defaultPadding),
               Expanded(
                 flex: 7,
                 child: SingleChildScrollView(

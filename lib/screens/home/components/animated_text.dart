@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
-import 'package:portifolio/screens/home/components/codeText.dart';
+import 'package:portifolio/screens/home/components/code_text.dart';
 
 class BuildAnimatiedText extends StatelessWidget {
   const BuildAnimatiedText({
@@ -14,24 +14,24 @@ class BuildAnimatiedText extends StatelessWidget {
       style: Theme.of(context).textTheme.titleMedium!,
       child: Row(
         children: [
-          CodedText(),
-          SizedBox(width: defaultPadding / 2),
-          Text("I build "),
+          const CodedText(),
+          const SizedBox(width: defaultPadding / 2),
+          const Text("I build "),
           AnimatedTextKit(animatedTexts: [
             TyperAnimatedText(
               "teste1",
-              speed: Duration(milliseconds: 60),
+              speed: const Duration(milliseconds: 60),
             ),
             TyperAnimatedText(
               "teste2",
-              speed: Duration(milliseconds: 60),
+              speed: const Duration(milliseconds: 60),
             ),
             TyperAnimatedText(
               "teste3",
-              speed: Duration(milliseconds: 60),
+              speed: const Duration(milliseconds: 60),
             ),
           ]),
-          Text.rich(
+          const Text.rich(
             TextSpan(
               text: "</",
               children: [

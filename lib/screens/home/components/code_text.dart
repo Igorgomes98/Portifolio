@@ -8,7 +8,7 @@ class CodedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text.rich(
+    return const Text.rich(
       TextSpan(
         text: "<",
         children: [

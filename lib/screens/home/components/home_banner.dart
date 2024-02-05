@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
-import 'package:portifolio/screens/home/components/animatedText.dart';
-import 'package:portifolio/screens/home/homeScreen.dart';
+import 'package:portifolio/screens/home/components/animated_text.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
