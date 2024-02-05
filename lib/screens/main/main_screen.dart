@@ -14,7 +14,6 @@ class MainScreen extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(maxWidth: maxWidth),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Expanded(
@@ -25,8 +24,11 @@ class MainScreen extends StatelessWidget {
               Expanded(
                 flex: 7,
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [...children],
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: defaultPadding),
+                    child: Column(
+                      children: [...children],
+                    ),
                   ),
                 ),
               ),
