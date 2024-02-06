@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/components/animatedProgressIndicator.dart';
+import 'package:portifolio/components/animated_progress_indicator.dart';
 import 'package:portifolio/constants.dart';
 
-class Codigo extends StatelessWidget {
-  const Codigo({
+class Code extends StatelessWidget {
+  const Code({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class Codigo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Divider(),
+        const Divider(),
         Padding(
           padding: const EdgeInsets.symmetric(
             vertical: defaultPadding,
@@ -22,23 +22,23 @@ class Codigo extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        AnimatedLinearProgress(
+        const AnimatedLinearProgress(
           title: "Dart",
           endValue: 0.8,
         ),
-        AnimatedLinearProgress(
+        const AnimatedLinearProgress(
           title: "C#",
           endValue: 0.6,
         ),
-        AnimatedLinearProgress(
+        const AnimatedLinearProgress(
           title: "C++",
           endValue: 0.4,
         ),
-        AnimatedLinearProgress(
+        const AnimatedLinearProgress(
           title: "Arduino",
           endValue: 0.4,
         ),
-        AnimatedLinearProgress(
+        const AnimatedLinearProgress(
           title: "React Native",
           endValue: 0.2,
         ),

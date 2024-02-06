@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
 import 'package:portifolio/responsive.dart';
@@ -25,7 +24,7 @@ class BuildAnimatiedText extends StatelessWidget {
             const SizedBox(width: defaultPadding / 2),
           const Text("I build "),
           Responsive.isMobile(context) ? 
-          Expanded(child: AnimatedTextSubtitle()) : AnimatedTextSubtitle(),
+          const Expanded(child: AnimatedTextSubtitle()) : const AnimatedTextSubtitle(),
           if (!Responsive.isMobileLarge(context))
             const SizedBox(width: defaultPadding / 2),
           if (!Responsive.isMobileLarge(context)) const CodedText(open: '</'),

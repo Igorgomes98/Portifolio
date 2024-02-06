@@ -14,7 +14,7 @@ class RecommendationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 400,
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       color: secondaryColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,12 +24,12 @@ class RecommendationCard extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
           Text(recommendation.source!),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           Text(
             recommendation.text!,
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(height: 1.5),
+            style: const TextStyle(height: 1.5),
           )
         ],
       ),

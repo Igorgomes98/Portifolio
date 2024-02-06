@@ -13,7 +13,7 @@ class CodedText extends StatelessWidget {
     return Text.rich(
       TextSpan(
         text: open,
-        children: [
+        children: const [
           TextSpan(text: "flutter", style: TextStyle(color: primaryColor)),
           TextSpan(text: ">")
         ],

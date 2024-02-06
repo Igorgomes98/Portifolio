@@ -12,9 +12,9 @@ class LabelCounterAnimatedInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: defaultPadding),
+      padding: const EdgeInsets.symmetric(vertical: defaultPadding),
       child: Responsive.isMobileLarge(context)
-          ? Column(
+          ? const Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,7 +27,7 @@ class LabelCounterAnimatedInfo extends StatelessWidget {
                         label: "Videos"),
                   ],
                 ),
-                const SizedBox(height: defaultPadding,),
+                SizedBox(height: defaultPadding,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -41,7 +41,7 @@ class LabelCounterAnimatedInfo extends StatelessWidget {
                 )
               ],
             )
-          : Row(
+          : const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 LabelCounterAnimated(

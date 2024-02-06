@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/components/animatedProgressIndicator.dart';
+import 'package:portifolio/components/animated_progress_indicator.dart';
 import 'package:portifolio/constants.dart';
 
-class Habilidades extends StatelessWidget {
-  const Habilidades({
+class Hability extends StatelessWidget {
+  const Hability({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class Habilidades extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Divider(),
+        const Divider(),
         Padding(
           padding: const EdgeInsets.symmetric(
             vertical: defaultPadding,

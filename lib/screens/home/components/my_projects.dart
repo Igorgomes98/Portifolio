@@ -19,7 +19,7 @@ class MyProjects extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: defaultPadding),
-        Responsive(
+        const Responsive(
           mobile: ProjectGridView(
             crossAxisCount: 1,
             childAspectRatio: 1.7,

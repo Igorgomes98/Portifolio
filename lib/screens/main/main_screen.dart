@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
 import 'package:portifolio/responsive.dart';
-import 'package:portifolio/screens/main/components/sideMenu.dart';
+import 'package:portifolio/screens/main/components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key, required this.children}) : super(key: key);
@@ -17,14 +17,14 @@ class MainScreen extends StatelessWidget {
               backgroundColor: bgColor,
               leading: Builder(
                 builder: (context) => IconButton(
-                  icon: Icon(Icons.menu),
+                  icon: const Icon(Icons.menu),
                   onPressed: () {
                     Scaffold.of(context).openDrawer();
                   },
                 ),
               ),
             ),
-      drawer: SideMenu(),
+      drawer: const SideMenu(),
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: maxWidth),

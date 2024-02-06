@@ -1,4 +1,3 @@
-
 class Project {
   final String? title, description;
 

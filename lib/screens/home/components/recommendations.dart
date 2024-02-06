@@ -18,7 +18,7 @@ class Recommendations extends StatelessWidget {
             "Recomendações",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(

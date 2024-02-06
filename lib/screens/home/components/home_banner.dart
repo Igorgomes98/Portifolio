@@ -38,13 +38,13 @@ class HomeBanner extends StatelessWidget {
             ),
             if (!Responsive.isMobileLarge(context))
               const SizedBox(height: defaultPadding / 2),
-            BuildAnimatiedText(),
+            const BuildAnimatiedText(),
             const SizedBox(height: defaultPadding),
             if (!Responsive.isMobileLarge(context))
               ElevatedButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                         horizontal: defaultPadding * 2,
                         vertical: defaultPadding),
                     backgroundColor: primaryColor,
@@ -52,7 +52,7 @@ class HomeBanner extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     )),
-                child: Text("EXPLORE NOW"),
+                child: const Text("EXPLORE NOW"),
               )
           ],
         )

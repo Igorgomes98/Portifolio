@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portifolio/constants.dart';
-import 'package:portifolio/screens/main/components/areaInfoText.dart';
-import 'package:portifolio/screens/main/components/codigo.dart';
-import 'package:portifolio/screens/main/components/conhecimento.dart';
-import 'package:portifolio/screens/main/components/habilidades.dart';
-import 'package:portifolio/screens/main/components/myInfo.dart';
+import 'package:portifolio/screens/main/components/area_info_text.dart';
+import 'package:portifolio/screens/main/components/code.dart';
+import 'package:portifolio/screens/main/components/knowledge.dart';
+import 'package:portifolio/screens/main/components/hability.dart';
+import 'package:portifolio/screens/main/components/my_info.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -35,10 +35,10 @@ class SideMenu extends StatelessWidget {
                   title: "Idade",
                   text: "25",
                 ),
-                Habilidades(),
-                Codigo(),
-                Conhecimentos(),
-                Divider(),
+                const Hability(),
+                const Code(),
+                const Knowledge(),
+                const Divider(),
                 TextButton(
                   onPressed: () {},
                   child: Row(
@@ -49,24 +49,24 @@ class SideMenu extends StatelessWidget {
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
-                      SizedBox(width: defaultPadding / 2),
+                      const SizedBox(width: defaultPadding / 2),
                       SvgPicture.asset("assets/icons/download.svg")
                     ],
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: defaultPadding),
-                  color: Color(0xFF24242E),
+                  margin: const EdgeInsets.only(top: defaultPadding),
+                  color: const Color(0xFF24242E),
                   child: Row(
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                           onPressed: () {},
                           icon: SvgPicture.asset("assets/icons/linkedin.svg")),
                       IconButton(
                           onPressed: () {},
                           icon: SvgPicture.asset("assets/icons/github.svg")),
-                      Spacer(),
+                      const Spacer(),
                     ],
                   ),
                 )
