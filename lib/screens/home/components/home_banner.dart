@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
-import 'package:portifolio/screens/home/components/animated_text.dart';
+import 'package:portifolio/responsive.dart';
+import 'package:portifolio/screens/home/components/subtitle_text.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
@@ -10,7 +11,7 @@ class HomeBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 3,
+      aspectRatio: Responsive.isMobile(context) ? 2.5 : 3,
       child: Stack(fit: StackFit.expand, children: [
         Image.asset(
           "assets/images/bg.jpeg",
@@ -25,27 +26,34 @@ class HomeBanner extends StatelessWidget {
           children: [
             Text(
               "Disconver my Amazing \nArt Space",
-              style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+              style: Responsive.isDesktop(context)
+                  ? Theme.of(context).textTheme.displaySmall!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      )
+                  : Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
             ),
+            if (!Responsive.isMobileLarge(context))
+              const SizedBox(height: defaultPadding / 2),
             BuildAnimatiedText(),
-            SizedBox(
-              height: defaultPadding,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: TextButton.styleFrom(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: defaultPadding * 2, vertical: defaultPadding),
-                  backgroundColor: primaryColor,
-                  foregroundColor: darkColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )),
-              child: Text("EXPLORE NOW"),
-            )
+            const SizedBox(height: defaultPadding),
+            if (!Responsive.isMobileLarge(context))
+              ElevatedButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: defaultPadding * 2,
+                        vertical: defaultPadding),
+                    backgroundColor: primaryColor,
+                    foregroundColor: darkColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
+                child: Text("EXPLORE NOW"),
+              )
           ],
         )
       ]),

@@ -3,14 +3,16 @@ import 'package:portifolio/constants.dart';
 
 class CodedText extends StatelessWidget {
   const CodedText({
-    super.key,
+    super.key, required this.open,
   });
+
+  final String open;
 
   @override
   Widget build(BuildContext context) {
-    return const Text.rich(
+    return Text.rich(
       TextSpan(
-        text: "<",
+        text: open,
         children: [
           TextSpan(text: "flutter", style: TextStyle(color: primaryColor)),
           TextSpan(text: ">")
