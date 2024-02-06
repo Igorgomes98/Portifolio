@@ -1,5 +1,9 @@
 {
-    "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
+    "version": 2,
+    "routes": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
     ]
 }
