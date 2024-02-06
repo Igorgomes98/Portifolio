@@ -25,7 +25,7 @@ class HomeBanner extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Disconver my Amazing \nArt Space",
+              "Bem vindo \nao meu portifolio",
               style: Responsive.isDesktop(context)
                   ? Theme.of(context).textTheme.displaySmall!.copyWith(
                         fontWeight: FontWeight.bold,

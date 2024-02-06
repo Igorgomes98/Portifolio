@@ -10,15 +10,15 @@ class AnimatedTextSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedTextKit(animatedTexts: [
       TyperAnimatedText(
-        "teste1",
+        "Faço a Análise sobre o seu projeto",
         speed: const Duration(milliseconds: 60),
       ),
       TyperAnimatedText(
-        "teste2",
+        "Sistemas Multiplataforma, Web, Android e IOS",
         speed: const Duration(milliseconds: 60),
       ),
       TyperAnimatedText(
-        "teste3",
+        "Construo Aplicativos e sites completos e feitos sobre demanda",
         speed: const Duration(milliseconds: 60),
       ),
     ]);

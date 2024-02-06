@@ -22,7 +22,7 @@ class BuildAnimatiedText extends StatelessWidget {
             ),
           if (!Responsive.isMobileLarge(context))
             const SizedBox(width: defaultPadding / 2),
-          const Text("I build "),
+          // const Text("Construo "),
           Responsive.isMobile(context) ? 
           const Expanded(child: AnimatedTextSubtitle()) : const AnimatedTextSubtitle(),
           if (!Responsive.isMobileLarge(context))
