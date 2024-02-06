@@ -40,7 +40,9 @@ class SideMenu extends StatelessWidget {
                 const Knowledge(),
                 const Divider(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    
+                  },
                   child: Row(
                     children: [
                       Text(
