@@ -14,22 +14,22 @@ class MyInfo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
-            CircleAvatar(
+            const CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage("images/IMG_8281.jpg"),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               "Igor Gomes",
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            Text("Desenvolvedor Web Fullstack \ne Mobile",
+            const Text("Desenvolvedor Web Fullstack \ne Mobile",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.w200, height: 1.5)),
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
           ],

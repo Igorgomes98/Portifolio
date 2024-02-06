@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/constants.dart';
-import 'package:portifolio/models/Recommendation.dart';
 import 'package:portifolio/screens/home/components/home_banner.dart';
 import 'package:portifolio/screens/home/components/label_counter_info.dart';
 import 'package:portifolio/screens/home/components/my_projects.dart';
@@ -12,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainScreen(
+    return const MainScreen(
       children: [
         HomeBanner(),
         LabelCounterAnimatedInfo(),

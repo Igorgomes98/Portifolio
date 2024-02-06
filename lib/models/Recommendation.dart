@@ -1,4 +1,3 @@
-
 class Recommendation {
   final String? name, source, text;
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
 import 'package:portifolio/models/Project.dart';
+import 'package:portifolio/responsive.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
@@ -11,7 +12,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       color: secondaryColor,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
@@ -20,18 +21,17 @@ class ProjectCard extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        Spacer(),
+        const Spacer(),
         Text(
           project.description!,
-          maxLines: 4,
+          maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(height: 1.5),
+          style: const TextStyle(height: 1.5),
         ),
-        Spacer(),
+        const Spacer(),
         TextButton(
-          
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Read More >>',
             style: TextStyle(
               color: primaryColor,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portifolio/constants.dart';
 
-class Conhecimentos extends StatelessWidget {
-  const Conhecimentos({
+class Knowledge extends StatelessWidget {
+  const Knowledge({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class Conhecimentos extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Divider(),
+        const Divider(),
         Padding(
           padding: const EdgeInsets.symmetric(
             vertical: defaultPadding,
@@ -22,10 +22,10 @@ class Conhecimentos extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        ConhecimentoText(text: "Flutter, Dart"),
-        ConhecimentoText(text: "Flutter, Dart, Teste"),
-        ConhecimentoText(text: "Flutter, Dart, TEste,TEste"),
-        ConhecimentoText(text: "Flutter, Dart"),
+        const ConhecimentoText(text: "Flutter, Dart"),
+        const ConhecimentoText(text: "Flutter, Dart, Teste"),
+        const ConhecimentoText(text: "Flutter, Dart, TEste,TEste"),
+        const ConhecimentoText(text: "Flutter, Dart"),
       ],
     );
   }
@@ -45,7 +45,7 @@ class ConhecimentoText extends StatelessWidget {
       child: Row(
         children: [
           SvgPicture.asset("assets/icons/check.svg"),
-          SizedBox(width: defaultPadding / 2),
+          const SizedBox(width: defaultPadding / 2),
           Text(text)
         ],
       ),
