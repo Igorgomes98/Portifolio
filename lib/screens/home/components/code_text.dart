@@ -14,7 +14,7 @@ class CodedText extends StatelessWidget {
       TextSpan(
         text: open,
         children: const [
-          TextSpan(text: "flutter", style: TextStyle(color: primaryColor)),
+          TextSpan(text: "igor-gomes", style: TextStyle(color: primaryColor)),
           TextSpan(text: ">")
         ],
       ),

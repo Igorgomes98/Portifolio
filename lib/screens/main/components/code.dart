@@ -23,24 +23,28 @@ class Code extends StatelessWidget {
           ),
         ),
         const AnimatedLinearProgress(
-          title: "Dart",
+          title: "Dart / Flutter",
           endValue: 0.8,
         ),
         const AnimatedLinearProgress(
-          title: "C#",
-          endValue: 0.6,
+          title: "HTML / CSS",
+          endValue: 0.70,
         ),
         const AnimatedLinearProgress(
-          title: "C++",
+          title: "SQL",
+          endValue: 0.75,
+        ),
+        const AnimatedLinearProgress(
+          title: "Angular",
+          endValue: 0.30,
+        ),
+        const AnimatedLinearProgress(
+          title: "ASP.Net",
+          endValue: 0.35,
+        ),
+        const AnimatedLinearProgress(
+          title: "No SQL",
           endValue: 0.4,
-        ),
-        const AnimatedLinearProgress(
-          title: "Arduino",
-          endValue: 0.4,
-        ),
-        const AnimatedLinearProgress(
-          title: "React Native",
-          endValue: 0.2,
         ),
       ],
     );

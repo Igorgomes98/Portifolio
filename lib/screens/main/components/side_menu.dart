@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 import 'package:portifolio/constants.dart';
 import 'package:portifolio/screens/main/components/area_info_text.dart';
 import 'package:portifolio/screens/main/components/code.dart';
@@ -14,6 +16,9 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Uri urlLinkedin =
+        Uri.parse("https://www.linkedin.com/in/igor-gomes-76b59a144/");
+    final Uri urlGithub = Uri.parse("https://github.com/Igorgomes98");
     return Drawer(
       child: SafeArea(
         child: Column(children: [
@@ -40,7 +45,10 @@ class SideMenu extends StatelessWidget {
                 const Knowledge(),
                 const Divider(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    html.window
+                        .open("assets/docs/Curriculo.pdf", "Curriculo.pdf");
+                  },
                   child: Row(
                     children: [
                       Text(
@@ -61,10 +69,24 @@ class SideMenu extends StatelessWidget {
                     children: [
                       const Spacer(),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (await canLaunchUrl(urlLinkedin)) {
+                              await launchUrl(urlLinkedin,
+                                  mode: LaunchMode.externalApplication);
+                            } else {
+                              throw 'Could not launch $urlLinkedin';
+                            }
+                          },
                           icon: SvgPicture.asset("assets/icons/linkedin.svg")),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (await canLaunchUrl(urlGithub)) {
+                              await launchUrl(urlGithub,
+                                  mode: LaunchMode.externalApplication);
+                            } else {
+                              throw 'Could not launch $urlGithub';
+                            }
+                          },
                           icon: SvgPicture.asset("assets/icons/github.svg")),
                       const Spacer(),
                     ],
