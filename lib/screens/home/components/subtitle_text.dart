@@ -13,7 +13,7 @@ class BuildAnimatiedText extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTextStyle(
       style: Theme.of(context).textTheme.titleMedium!,
-      maxLines: 1,
+      maxLines: 2,
       child: Row(
         children: [
           if (!Responsive.isMobileLarge(context))

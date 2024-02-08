@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         HomeBanner(),
         // LabelCounterAnimatedInfo(),
-        // MyProjects(),
+        MyProjects(),
         // Recommendations(),
       ],
     );
