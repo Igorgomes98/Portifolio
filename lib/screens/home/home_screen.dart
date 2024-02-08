@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     return const MainScreen(
       children: [
         HomeBanner(),
-        // LabelCounterAnimatedInfo(),
+        LabelCounterAnimatedInfo(),
         MyProjects(),
         // Recommendations(),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:number_paginator/number_paginator.dart';
 import 'package:portifolio/constants.dart';
 import 'package:portifolio/http/webclients/git_webclient.dart';
 import 'package:portifolio/models/Project.dart';
@@ -50,6 +51,9 @@ class ProjectGridView extends StatefulWidget {
 
 class _ProjectGridViewState extends State<ProjectGridView> {
   final GitWebClient _gitWebClient = GitWebClient();
+  int page = 1;
+  int totalPages = 1;
+  List<Project>? allProjects = [];
   List<Project>? projects = [];
   bool isLoadingProject = false;
 
@@ -67,9 +71,10 @@ class _ProjectGridViewState extends State<ProjectGridView> {
       });
       final List<Project>? response = await _gitWebClient.getGitProjects();
       setState(() {
-        projects = response!;
+        allProjects = response!;
         isLoadingProject = false;
       });
+      getProjectsPage(allProjects!, page);
     } catch (e) {
       print(e);
       setState(() {
@@ -78,20 +83,85 @@ class _ProjectGridViewState extends State<ProjectGridView> {
     }
   }
 
+  void getProjectsPage(List<Project> allProjects, int page, {int perPage = 6}) {
+    final int startIndex = (page - 1) * perPage;
+    final int totalProjects = allProjects.length;
+    final int endIndex = startIndex + perPage >= totalProjects
+        ? totalProjects - 1
+        : startIndex + perPage;
+    setState(() {
+      projects = allProjects.sublist(startIndex, endIndex);
+      totalPages = (totalProjects / perPage).ceil();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      itemCount: projects?.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: widget.crossAxisCount,
-        crossAxisSpacing: defaultPadding,
-        childAspectRatio: widget.childAspectRatio,
-        mainAxisSpacing: defaultPadding,
-      ),
-      itemBuilder: (BuildContext context, int index) {
-        return ProjectCard(project: projects![index]);
-      },
+    return Column(
+      children: [
+        GridView.builder(
+          shrinkWrap: true,
+          itemCount: projects?.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: widget.crossAxisCount,
+            crossAxisSpacing: defaultPadding,
+            childAspectRatio: widget.childAspectRatio,
+            mainAxisSpacing: defaultPadding,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return ProjectCard(project: projects![index]);
+          },
+        ),
+        Row(
+          children: [
+            Spacer(flex: 1,),
+            Expanded(
+              child: NumberPaginator(
+                numberPages: totalPages,
+                config: NumberPaginatorUIConfig(
+                  buttonSelectedBackgroundColor: secondaryColor,
+                  buttonSelectedForegroundColor: primaryColor,
+                  buttonUnselectedForegroundColor: Colors.white,
+                  // contentPadding: EdgeInsets.all()
+                ),
+                onPageChange: (int index) {
+                  final int page = index + 1;
+                  getProjectsPage(allProjects!, page);
+                },
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
+}
+
+class PaginationResult {
+  final List<Project> projects;
+  final int currentPage;
+  final int totalPages;
+
+  PaginationResult({
+    required this.projects,
+    required this.currentPage,
+    required this.totalPages,
+  });
+}
+
+List<Project>? allProjects = [];
+
+PaginationResult getProjectsForPage(int page, int projectsPerPage) {
+  final int startIndex = (page - 1) * projectsPerPage;
+  final int endIndex = startIndex + projectsPerPage;
+  final List<Project> projects = allProjects!.sublist(startIndex, endIndex);
+
+  final int totalProjects = allProjects!.length;
+  final int totalPages = (totalProjects / projectsPerPage).ceil();
+
+  return PaginationResult(
+    projects: projects,
+    currentPage: page,
+    totalPages: totalPages,
+  );
 }
