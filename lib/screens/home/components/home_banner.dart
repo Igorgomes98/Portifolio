@@ -40,20 +40,20 @@ class HomeBanner extends StatelessWidget {
               const SizedBox(height: defaultPadding / 2),
             const BuildAnimatiedText(),
             const SizedBox(height: defaultPadding),
-            if (!Responsive.isMobileLarge(context))
-              ElevatedButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: defaultPadding * 2,
-                        vertical: defaultPadding),
-                    backgroundColor: primaryColor,
-                    foregroundColor: darkColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    )),
-                child: const Text("EXPLORE NOW"),
-              )
+            // if (!Responsive.isMobileLarge(context))
+            //   ElevatedButton(
+            //     onPressed: () {},
+            //     style: TextButton.styleFrom(
+            //         padding: const EdgeInsets.symmetric(
+            //             horizontal: defaultPadding * 2,
+            //             vertical: defaultPadding),
+            //         backgroundColor: primaryColor,
+            //         foregroundColor: darkColor,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(10),
+            //         )),
+            //     child: const Text(""),
+            //   )
           ],
         )
       ]),

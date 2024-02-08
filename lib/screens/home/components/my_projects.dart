@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/constants.dart';
+import 'package:portifolio/http/webclients/git_webclient.dart';
 import 'package:portifolio/models/Project.dart';
 import 'package:portifolio/responsive.dart';
 import 'package:portifolio/screens/home/components/project_card.dart';
@@ -33,7 +34,7 @@ class MyProjects extends StatelessWidget {
   }
 }
 
-class ProjectGridView extends StatelessWidget {
+class ProjectGridView extends StatefulWidget {
   const ProjectGridView({
     super.key,
     this.crossAxisCount = 3,
@@ -44,18 +45,52 @@ class ProjectGridView extends StatelessWidget {
   final double childAspectRatio;
 
   @override
+  State<ProjectGridView> createState() => _ProjectGridViewState();
+}
+
+class _ProjectGridViewState extends State<ProjectGridView> {
+  final GitWebClient _gitWebClient = GitWebClient();
+  List<Project>? projects = [];
+  bool isLoadingProject = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getProjects();
+  }
+
+  void getProjects() async {
+    try {
+      setState(() {
+        isLoadingProject = true;
+      });
+      final List<Project>? response = await _gitWebClient.getGitProjects();
+      setState(() {
+        projects = response!;
+        isLoadingProject = false;
+      });
+    } catch (e) {
+      print(e);
+      setState(() {
+        isLoadingProject = false;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      itemCount: demoProjects.length,
+      itemCount: projects?.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
+        crossAxisCount: widget.crossAxisCount,
         crossAxisSpacing: defaultPadding,
-        childAspectRatio: childAspectRatio,
+        childAspectRatio: widget.childAspectRatio,
         mainAxisSpacing: defaultPadding,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return ProjectCard(project: demoProjects[index]);
+        return ProjectCard(project: projects![index]);
       },
     );
   }

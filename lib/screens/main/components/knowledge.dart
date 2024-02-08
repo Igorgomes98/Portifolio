@@ -22,10 +22,11 @@ class Knowledge extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        const ConhecimentoText(text: "Angular JS, REST API"),
+        const ConhecimentoText(text: "Angular, Angular JS, Jquery"),
         const ConhecimentoText(text: "Java Android, React Native"),
         const ConhecimentoText(text: "C#, C++, Arduino"),
         const ConhecimentoText(text: "Mysql, SQL Server, PL Sql"),
+        const ConhecimentoText(text: "REST API"),
         const ConhecimentoText(text: "Firebase"),
       ],
     );

@@ -35,7 +35,7 @@ class Code extends StatelessWidget {
           endValue: 0.75,
         ),
         const AnimatedLinearProgress(
-          title: "Angular",
+          title: "TypeScript",
           endValue: 0.30,
         ),
         const AnimatedLinearProgress(
