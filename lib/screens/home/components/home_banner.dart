@@ -14,7 +14,7 @@ class HomeBanner extends StatelessWidget {
       aspectRatio: Responsive.isMobile(context) ? 2.5 : 3,
       child: Stack(fit: StackFit.expand, children: [
         Image.asset(
-          "assets/images/bg.jpeg",
+          "assets/images/bg_igor.webp",
           fit: BoxFit.cover,
         ),
         Container(
