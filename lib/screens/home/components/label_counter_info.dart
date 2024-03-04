@@ -1,10 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:portifolio/components/animated_counter.dart';
 import 'package:portifolio/constants.dart';
 import 'package:portifolio/http/webclients/git_webclient.dart';
 import 'package:portifolio/models/Language.dart';
 import 'package:portifolio/responsive.dart';
-import 'package:portifolio/screens/home/components/label_counter.dart';
+import 'package:portifolio/screens/home/components/build_language_column.dart';
+import 'package:portifolio/screens/home/components/build_language_row.dart';
 
 class LabelCounterAnimatedInfo extends StatefulWidget {
   const LabelCounterAnimatedInfo({
@@ -22,7 +23,6 @@ class _LabelCounterAnimatedInfoState extends State<LabelCounterAnimatedInfo> {
   bool isLoading = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getLanguages();
   }
@@ -38,9 +38,13 @@ class _LabelCounterAnimatedInfoState extends State<LabelCounterAnimatedInfo> {
         languages = response!;
         isLoading = false;
       });
-      print(languages.toString());
+      if (kDebugMode) {
+        print(languages.toString());
+      }
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 
@@ -51,59 +55,6 @@ class _LabelCounterAnimatedInfoState extends State<LabelCounterAnimatedInfo> {
       child: Responsive.isMobileLarge(context)
           ? BuildLanguageColumn(languages: languages)
           : BuildLanguageRow(languages: languages),
-    );
-  }
-}
-
-class BuildLanguageColumn extends StatelessWidget {
-  const BuildLanguageColumn({
-    super.key,
-    required this.languages,
-  });
-
-  final List<Language> languages;
-
-  @override
-  Widget build(BuildContext context) {
-    if (languages.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: LinearProgressIndicator(
-          color: primaryColor,
-        ),
-      );
-    } else {
-      final List<Language> firstColumn = languages.sublist(0, 2);
-      final List<Language> secondColumn = languages.sublist(2, 4);
-      return Column(
-        children: [
-          BuildLanguageRow(languages: firstColumn),
-          const SizedBox(height: defaultPadding),
-          BuildLanguageRow(languages: secondColumn),
-        ],
-      );
-    }
-  }
-}
-
-class BuildLanguageRow extends StatelessWidget {
-  const BuildLanguageRow({
-    super.key,
-    required this.languages,
-  });
-
-  final List<Language> languages;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: languages.map((language) {
-        return LabelCounterAnimated(
-          counter: AnimatedCounter(value: language.hours, text: 'h+'),
-          label: language.name,
-        );
-      }).toList(),
     );
   }
 }

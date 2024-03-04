@@ -4,7 +4,7 @@ import 'package:portifolio/responsive.dart';
 import 'package:portifolio/screens/main/components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key, required this.children}) : super(key: key);
+  const MainScreen({super.key, required this.children});
 
   final List<Widget> children;
 

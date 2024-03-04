@@ -3,10 +3,10 @@ import 'package:portifolio/constants.dart';
 
 class AreaInfoText extends StatelessWidget {
   const AreaInfoText({
-    Key? key,
+    super.key,
     this.title,
     this.text,
-  }) : super(key: key);
+  });
 
   final String? title, text;
 

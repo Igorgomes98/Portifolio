@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:portifolio/models/Language.dart';
 import 'package:portifolio/models/Project.dart';
 
@@ -41,14 +42,18 @@ class GitWebClient {
       return [];
     } on DioException catch (e) {
       if (e.response != null) {
+        if (kDebugMode) {
           print(e.response!.data);
           print(e.response!.headers);
           print(e.response!.requestOptions);
-        } else {
-          // Something happened in setting up or sending the request that triggered an Error
+        }
+      } else {
+        // Something happened in setting up or sending the request that triggered an Error
+        if (kDebugMode) {
           print(e.requestOptions);
           print(e.message);
         }
+      }
     }
     return null;
   }
