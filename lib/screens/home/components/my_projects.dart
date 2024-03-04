@@ -102,6 +102,7 @@ class _ProjectGridViewState extends State<ProjectGridView> {
         GridView.builder(
           shrinkWrap: true,
           itemCount: projects?.length,
+          physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: widget.crossAxisCount,
             crossAxisSpacing: defaultPadding,
@@ -112,25 +113,18 @@ class _ProjectGridViewState extends State<ProjectGridView> {
             return ProjectCard(project: projects![index]);
           },
         ),
-        Row(
-          children: [
-            Spacer(flex: 1,),
-            Expanded(
-              child: NumberPaginator(
-                numberPages: totalPages,
-                config: NumberPaginatorUIConfig(
-                  buttonSelectedBackgroundColor: secondaryColor,
-                  buttonSelectedForegroundColor: primaryColor,
-                  buttonUnselectedForegroundColor: Colors.white,
-                  // contentPadding: EdgeInsets.all()
-                ),
-                onPageChange: (int index) {
-                  final int page = index + 1;
-                  getProjectsPage(allProjects!, page);
-                },
-              ),
-            ),
-          ],
+        NumberPaginator(
+          numberPages: totalPages,
+          config: NumberPaginatorUIConfig(
+            buttonSelectedBackgroundColor: secondaryColor,
+            buttonSelectedForegroundColor: primaryColor,
+            buttonUnselectedForegroundColor: Colors.white,
+            // contentPadding: EdgeInsets.all()
+          ),
+          onPageChange: (int index) {
+            final int page = index + 1;
+            getProjectsPage(allProjects!, page);
+          },
         )
       ],
     );
